@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import dlib
 import numpy as np
 import cv2
 import sys
@@ -71,21 +72,26 @@ def morphTriangle(img1, img2, img, t1, t2, t, alpha) :
 
 if __name__ == '__main__' :
 
-    filename1 = 'olivia2.jpg'
-    filename2 = 'hillary_clinton.jpg'
+  for num in range(1,4):
+    filename1 = str(num) + 'a.jpg'
+    filename2 = str(num) + 'b.jpg'
     alpha = 0.5
     
     # Read images
-    img1 = cv2.imread(filename1);
-    img2 = cv2.imread(filename2);
+    img1 = cv2.imread('./pairs/' + filename1);
+    img2 = cv2.imread('./pairs/' + filename2);
     
     # Convert Mat to float data type
     img1 = np.float32(img1)
     img2 = np.float32(img2)
 
     # Read array of corresponding points
-    points1 = readPoints(filename1 + '.txt')
-    points2 = readPoints(filename2 + '.txt')
+    points1 = readPoints('./output/' + filename1 + '.txt')
+    points2 = readPoints('./output/' + filename2 + '.txt')
+
+#    points1 = readPoints(filename1 + '.txt')
+#    points2 = readPoints(filename2 + '.txt')
+
     points = [];
 
     # Compute weighted average point coordinates
@@ -99,7 +105,7 @@ if __name__ == '__main__' :
     imgMorph = np.zeros(img1.shape, dtype = img1.dtype)
 
     # Read triangles from tri.txt
-    with open("tri2.txt") as file :
+    with open("tri.txt") as file :
         for line in file :
             x,y,z = line.split()
             
@@ -115,7 +121,9 @@ if __name__ == '__main__' :
             morphTriangle(img1, img2, imgMorph, t1, t2, t, alpha)
 
 
-    # Display Result
+    # Display Result and output to morphs folder
     cv2.imshow("Morphed Face", np.uint8(imgMorph))
-    cv2.imwrite("Morph.jpg", imgMorph)
-    cv2.waitKey(0)
+    cv2.imwrite('./morphs/' + str(num) + '_morph.jpg', imgMorph);
+    cv2.waitKey(1)
+    # Close window
+    #cv2.destroyAllWindows()
