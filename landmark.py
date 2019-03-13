@@ -11,9 +11,8 @@ import os
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 
-# for file in os.listdir('./images'):
 # iterate through numbered files
-for n in range(1, 4):
+for n in range(1, 5):
   img1 = cv2.imread("./pairs/" + str(n) + "a.jpg", 0)
   img2 = cv2.imread("./pairs/" + str(n) + "b.jpg", 0)
 
