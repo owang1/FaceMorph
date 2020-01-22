@@ -11,8 +11,8 @@ from faceSwap_lap import *
 
 if __name__ == '__main__':
 # Range of image pairs to process
-    numStart = 33
-    numEnd = 100
+    numStart = 1
+    numEnd = 1000
 # Invalid Pairs: 29, 352, 662, 677, 841
 
 # Step 1: Get facial landmarks of pairs
