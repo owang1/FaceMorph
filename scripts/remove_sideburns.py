@@ -48,14 +48,14 @@ def remove_sideburns(numStart, numEnd, outputFolder, newOutputFolder):
 				if counter == 16:
 				# Shifts 17th landmark point down & left 10 pixels
 					coordinate1 = n1.split()
-					x_coordinate1 = int(coordinate1[0]) - 20
-					y_coordinate1 = int(coordinate1[1]) + 20
+					x_coordinate1 = int(coordinate1[0]) - 10
+					y_coordinate1 = int(coordinate1[1]) + 10
 					new_coordinate1 = (str(x_coordinate1) + " " + str(y_coordinate1))
 					content1[counter] = new_coordinate1
 
 					coordinate2 = n2.split()
-					x_coordinate2 = int(coordinate2[0]) - 20
-					y_coordinate2 = int(coordinate2[1]) + 20
+					x_coordinate2 = int(coordinate2[0]) - 10
+					y_coordinate2 = int(coordinate2[1]) + 10
 					new_coordinate2 = (str(x_coordinate2) + " " + str(y_coordinate2))
 					content2[counter] = new_coordinates2
 
