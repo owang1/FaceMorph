@@ -18,15 +18,15 @@ if __name__ == '__main__':
 # Step 1: Get facial landmarks of pairs
     imageFolder = "./images/Original_Pairs/"
     outputFolder = "./landmarks/Impostors_Output/"
-    # landmark(numStart, numEnd, imageFolder, outputFolder)
+    landmark(numStart, numEnd, imageFolder, outputFolder)
 
 # Step 2: Morph faces
     morphsFolder = "./images/Morphs/"   # stores morphs with black background
-    # faceMorph(numStart, numEnd, imageFolder, outputFolder, morphsFolder)
+    faceMorph(numStart, numEnd, imageFolder, outputFolder, morphsFolder)
 
 # Step 3: Get facial landmarks of morph
     morphOutputFolder = "./landmarks/Impostors_M_Output/"
-    # landmark_morph(numStart, numEnd, morphsFolder, morphOutputFolder)
+    landmark_morph(numStart, numEnd, morphsFolder, morphOutputFolder)
  
 # Step 4: Change background of morphs to skin
     kMorphsFolder = "./images/Morphs_K/"
@@ -51,6 +51,3 @@ if __name__ == '__main__':
 #    flag = "none"
 #    faceSwap(numStart, numEnd, morphsFolder, imageFolder, morphOutputFolder, outputFolder, finalFolder)
 
-# Laplacian method (attempt)
-#    finalFolder = "./old_versions/Laplacian/"
-#    faceSwap_lap(numStart, numEnd, morphsFolder, imageFolder, morphOutputFolder, outputFolder, finalFolder)
